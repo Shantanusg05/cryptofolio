@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useCallback } from "react";
 import { ethers } from "ethers";
 import { Store } from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css';
@@ -152,21 +153,35 @@ const MetaMaskComponent = () => {
         }
     };
 
-    const fetchEthBalance = async (address) => {
+   const fetchEthBalance = useCallback(
+    async (address) => {
         if (!provider || !address) return;
         try {
             const balance = await provider.getBalance(address);
             const formattedBalance = ethers.formatEther(balance);
-            showNotification('Info', `Balance fetched: ${formattedBalance} ETH`, 'info');
+            showNotification(
+                'Info',
+                `Balance fetched: ${formattedBalance} ETH`,
+                'info'
+            );
             setBalance(formattedBalance);
         } catch (error) {
-            showNotification('Error', 'Failed to fetch balance', 'danger');
+            showNotification(
+                'Error',
+                'Failed to fetch balance',
+                'danger'
+            );
         }
-    };
+    },
+    [provider]   // dependencies used inside the function
+);
 
-    useEffect(() => {
-        if (walletAddress || manualAddress) { fetchEthBalance(walletAddress || manualAddress); }
-    }, [walletAddress, manualAddress, provider]);
+useEffect(() => {
+    if (walletAddress || manualAddress) {
+        fetchEthBalance(walletAddress || manualAddress);
+    }
+}, [walletAddress, manualAddress, fetchEthBalance]);
+
 
     const connectToMetaMaskManually = async (manualAddress) => {
         try {

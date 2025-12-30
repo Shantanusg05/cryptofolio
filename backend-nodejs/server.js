@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const routes = require('./routes/route');
 const http = require('http');
 
-const HTTP_PORT = process.env.HTTP_PORT;
+const HTTP_PORT = process.env.HTTP_PORT || 3001;
 const HOST = 'localhost';
 
 app.use(express.json());

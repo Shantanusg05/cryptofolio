@@ -1,1 +1,40 @@
-.vercel
+# ======================
+# Node / JavaScript
+# ======================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ======================
+# React build
+# ======================
+build/
+coverage/
+
+# ======================
+# Environment files
+# ======================
+.env
+.env.*
+backend-nodejs/.env
+frontend/.env
+backend-fastapi/.env
+
+# ======================
+# Python
+# ======================
+venv/
+backend-fastapi/venv/
+__pycache__/
+*.pyc
+
+# ======================
+# Deployment
+# ======================
+.vercel/
+
+# ======================
+# OS / misc
+# ======================
+.DS_Store
