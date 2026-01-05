@@ -6,7 +6,7 @@ export default function About() {
             <h1 style={styles.title}>About Cryptofolio</h1>
 
             <p style={styles.description}>
-                Welcome to Cryptofolio, a single-page application designed to manage cryptocurrency portfolio. This project was developed as part of the assessment for Spearx's Summer '25 internship. The goal is to provide a tool to manage, track, and optimize crypto assets. While some features have been implemented, there are additional ideas and enhancements that I may work on in the future, depending on convenience and situation.
+                Welcome to Cryptofolio, a single-page application designed to manage cryptocurrency portfolio. The goal is to provide a tool to manage, track, and optimize crypto assets. While some features have been implemented, there are additional ideas and enhancements that I may work on in the future, depending on convenience and situation.
             </p>
             <h2 style={styles.subtitle}>Key Features</h2>
             <ul style={styles.featureList}>
