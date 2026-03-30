@@ -3,7 +3,7 @@ const { MongoClient } = require('mongodb');
 
 const addToWatchlist = async (req, res) => {
     console.log('wal')
-    const client = new MongoClient(process.env.MONGODB_URL);
+   const connectDB = require('../../db');
     const { user, coin } = req.body;
     console.log(coin)
     try {
@@ -11,8 +11,7 @@ const addToWatchlist = async (req, res) => {
             return res.status(400).json({ warn: "User and coin are required" });
         }
 
-        await client.connect();
-        const db = client.db("controlia");
+        const db = await connectDB();
         const watchlistCollection = db.collection('cryptofolioWatchlist');
 
         const result = await watchlistCollection.updateOne(
