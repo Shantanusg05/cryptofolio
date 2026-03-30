@@ -184,7 +184,7 @@ Make sure you have Docker and Docker Compose installed on your machine. You can 
    If you haven’t already cloned the repository, do so by running:
 
    ```bash
-   git clone https://github.com/ravi-ivar-7/cryptofolio.git
+   git clone https://github.com/Shantanusg05/cryptofolio.git
    cd cryptofolio
 
 2. **After making .env file for each server**
