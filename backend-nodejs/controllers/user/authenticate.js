@@ -4,8 +4,7 @@ const { generateToken } = require('../../middlewares/encodeToken');
 const bcrypt = require('bcryptjs');
 
 const authenticate = async (req, res) => {
-    const client = new MongoClient(process.env.MONGODB_URL);
-
+   const connectDB = require('../../db');
     try {
         const { email, name, password } = req.body;
 
@@ -13,8 +12,7 @@ const authenticate = async (req, res) => {
             return res.status(400).json({ warn: "All fields are required!" });
         }
 
-        await client.connect();
-        const db = client.db("controlia");
+        const db = await connectDB();
         const usersCollection = db.collection('cryptofolioUsers');
 
         const existingUser = await usersCollection.findOne({ email: email });
